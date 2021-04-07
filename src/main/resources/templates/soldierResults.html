@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>View all Soldiers</title>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr th:each="currentSoldier : ${soldiers}" >
+					<td th:text="${currentSoldier.id}" />
+					<td th:text="${currentSoldier.soldierRank}" />
+					<td th:text="${currentSoldier.lastName}" />
+					<td th:text="${currentSoldier.firstName}" />
+					<td th:text="${currentSoldier.ssn}" />
+					<td th:text="${currentSoldier.jobPosition}" />
+					<td th:text="${currentSoldier.squadData.squadNumber}" />
+					<td th:text="${currentSoldier.squadData.teamAssignment}" />
+					<td th:text="${currentSoldier.platoonData.platoonNumber}" />
+					<td th:text="${currentSoldier.companyData.companyName}" />
+					<td th:text="${currentSoldier.battalionData.battalionName}" />
+					<td th:text="${currentSoldier.regimentData.regimentName}" />
+					<td><a th:href="@{/edit/{id}(id=${currentSoldier.id})}">Edit</a></td>
+					<td><a th:href="@{/delete/{id}(id=${currentSoldier.id})}">Delete</a></td>
+				</tr>
+			</table>
+		</form>
+		<a href="../inputSoldier">Add a new Soldier</a>
+	</body>
+</html>
