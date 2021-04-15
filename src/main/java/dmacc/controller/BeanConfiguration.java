@@ -22,7 +22,6 @@ public class BeanConfiguration {
 	@Bean
 	public Soldier soldier() {
 		Soldier bean = new Soldier();
-		bean.setFirstName("Jimbob");
 		return bean;
 	}
 	

@@ -1,23 +1,101 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<title>Add new Soldier</title>
+		<script type = "text/javascript">
+			function validateForm(soldierData) {
+				
+				alert("Testing!");
+				
+				if(soldierData.firstName.value == "") {
+					alert("Please enter First name");
+					soldierData.firstName.focus();
+					return false;
+				}
+				
+				if(soldierData.lastName.value == ""){
+					alert("Please enter Last name");
+					soldierData.lastName.focus();
+					return false;
+				}
+				
+				if(soldierData.soldierRank.value == ""){
+					alert("Please enter rank");
+					soldierData.soldierRank.focus();
+					return false;
+				}
+				
+				if (soldierData.ssn.value == "" || soldierData.ssn.value.length != 9 || isNaN(soldierData.ssn.value)) {
+					alert("Please enter a 9 digit SSN");
+					soldierData.ssn.focus();
+					return false;
+				}
+				
+				if (soldierData.jobPosition.value == "") {
+					alert("Please enter job title or MOS");
+					soldierData.jobPosition.focus();
+					return false;
+				}
+				
+				alert("Now at embedded class");
+				let SD = soldierData.squadNumber.value;
+				alert("Squad Number is: " + SN);
+				
+				if (soldierData.squadNumber.value == "") {
+					alert("Squad number empty");
+					soldierData.squadNumber.focus();
+					return false;
+				}
+ 				
+ 				if (soldierData.teamAssignment.value == "") {
+					alert("Team is empty");
+					soldierData.teamAssignment.focus();
+					return false;
+ 				}
+ 				
+ 				if (soldierData.platoonNumber.value == "") {
+					alert("Platoon is empty");
+					soldierData.platoonNumber.focus();
+					return false;
+ 				}
+ 				
+ 				if (soldierData.companyName.value == "") {
+					alert("Company is empty");
+					soldierData.companyName.focus();
+					return false;
+ 				}
+ 				
+ 				if (soldierData.battalionName.value == "") {
+					alert("Battalion is empty");
+					soldierData.battalionName.focus();
+					return false;
+ 				}
+ 				
+ 				if (soldierData.regimentName.value == "") {
+					alert("Regiment is empty");
+					soldierData.regimentName.focus();
+					return false;
+ 				}
+ 				
+ 				return true;
+			}
+		</script>
 	</head>
 	<body>
-		<form th:object="${newSoldier}" th:action="@{/update/{id}(id=${newSoldier.id})}" method='POST'>
+		<form th:object="${newSoldier}" th:action="@{/update/{id}(id=${newSoldier.id})}" onsubmit="return validateForm(this);" method='POST'>
 		
 			First Name: <input name="firstName" size="20" th:field="*{firstName}"><br>
 			Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br>
-			Rank: <input name = "soldierRank" size="20" th:field="*{soldierRank}"><br>
+			Rank: <input name="soldierRank" size="20" th:field="*{soldierRank}"><br>
 			SSN: <input name="ssn" size="20" th:field="*{ssn}"><br>
 			Job Position (MOS): <input name="jobPosition" size="20" th:field="*{jobPosition}"><br>
-			Squad: <input name = "squadData.squadNumber" size="20" th:field="*{squadData.squadNumber}"><br>
-			Team: <input name="squadData.teamAssignment" size="20" th:field="*{squadData.teamAssignment}"><br>
-			Platoon: <input name="platoonData.platoonNumber" size="20" th:field="*{platoonData.platoonNumber}"><br>
-			Company: <input name="companyData.companyName" size="20" th:field="*{companyData.companyName}"><br>
-			Battalion: <input name="battalionData.battalionName" size="20" th:field="*{battalionData.battalionName}"><br>
-			Regiment: <input name="regimentData.regimentName" size="20" th:field="*{regimentData.regimentName}"><br>
+			Squad: <input name="squadNumber" size="20" th:field="*{squadData.squadNumber}"><br>
+			Team: <input name="teamAssignment" size="20" th:field="*{squadData.teamAssignment}"><br>
+			Platoon: <input name="platoonNumber" size="20" th:field="*{platoonData.platoonNumber}"><br>
+			Company: <input name="companyName" size="20" th:field="*{companyData.companyName}"><br>
+			Battalion: <input name="battalionName" size="20" th:field="*{battalionData.battalionName}"><br>
+			Regiment: <input name="regimentName" size="20" th:field="*{regimentData.regimentName}"><br>
 			
 			<input name="submit" type="submit" value="submit" />
 		</form>
