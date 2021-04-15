@@ -52,7 +52,7 @@ public class WebController {
 	}
 	
 	@PostMapping("/update/{id}")
-	public String reviseSoldier(Soldier s, Model model) {
+	public String reviseSoldier(@ModelAttribute Soldier s, Model model) {
 		repo.save(s);
 		return viewAllSoldiers(model);
 	}

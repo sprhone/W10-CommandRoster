@@ -7,6 +7,20 @@
 	<body>
 		<form>
 			<table>
+				<tr>
+					<th>ID</th>
+					<th>Rank</th>
+					<th>Last</th>
+					<th>First</th>
+					<th>SSN</th>
+					<th>Job Position or MOS</th>
+					<th>Squad #</th>
+					<th>Team</th>
+					<th>Platoon #</th>
+					<th>Company</th>
+					<th>Battalion</th>
+					<th>Regiment</th>
+				<tr>
 				<tr th:each="currentSoldier : ${soldiers}" >
 					<td th:text="${currentSoldier.id}" />
 					<td th:text="${currentSoldier.soldierRank}" />

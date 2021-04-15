@@ -4,11 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * Sterling Rhone - sprhone
@@ -18,7 +15,6 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@NoArgsConstructor
 @Entity
 public class Soldier {
 	@Id
@@ -39,12 +35,4 @@ public class Soldier {
 	private Battalion battalionData;
 	@Autowired
 	private Regiment regimentData;
-	
-	public Soldier(String firstName, String lastName) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-	
-	
 }
